@@ -1,5 +1,6 @@
 package io.github.webbluetoothcg.bletestperipheral;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
@@ -67,12 +68,12 @@ public class AriaGestureServiceFragment extends ServiceFragment implements View.
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
         try {
-            mDelegate = (ServiceFragmentDelegate) context;
+            mDelegate = (ServiceFragmentDelegate) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
+            throw new ClassCastException(activity.toString()
                     + " must implement ServiceFragmentDelegate");
         }
     }
